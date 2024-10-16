@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Arrow Streaming Site</title>
+    <link rel="icon" href="blob:https://imgur.com/ab9fef17-a35b-4b91-8df5-67f83017f23f" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a0a, #0e2f20, #00160e);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        @keyframes arrowAnimation {
+            0% {
+                left: -10%;
+                top: 50%;
+                opacity: 1;
+            }
+            50% {
+                left: 40%;
+                top: 60%;
+                opacity: 0.7;
+            }
+            100% {
+                left: 100%;
+                top: 70%;
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        .arrow {
+            position: absolute;
+            width: 100px;
+            z-index: 10;
+            animation: arrowAnimation 2s linear forwards;
+          }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #0b3d31, #062e1f);
+        }
+        .login-box {
+            background-color: rgba(0, 255, 127, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 127, 0.7);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .login-box img {
+            width: 100px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        .login-box img:hover {
+            transform: scale(1.1);
+        }
+        .login-box input[type="password"],
+        .login-box input[type="checkbox"] {
+            margin: 10px 0;
+            padding: 15px;
+            width: calc(100% - 32px);
+            box-sizing: border-box;
+            border: 2px solid #00ff7f;
+            border-radius: 10px;
+            background: #333;
+            color: #fff;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .login-box input[type="password"]:focus,
+        .login-box input[type="checkbox"]:focus {
+            background: #444;
+            border-color: #00e676;
+        }
+        .login-box button {
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #00ff7f, #00e676);
+            border: none;
+            border-radius: 10px;
+            color: #121212;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .login-box button:hover {
+            background: linear-gradient(90deg, #00e676, #00ff7f);
+            transform: scale(1.05);
+        }
+        .streaming-page {
+            padding: 20px;
+            text-align: center;
+            animation: slideUp 1s ease-in-out;
+        }
+        .streaming-page img {
+            width: 200px;
+            display: block;
+            margin: 0 auto;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+        .streaming-page img:hover {
+            transform: scale(1.1);
+        }
+        .info-container {
+            background: rgba(0, 255, 127, 0.1);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.5);
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .streaming-page .info p,
+        .streaming-page .description p {
+            margin: 0;
+            padding: 15px;
+            background: rgba(0, 255, 127, 0.2);
+            border-radius: 15px;
+            transition: background 0.3s;
+        }
+        .streaming-page .info p:hover,
+        .streaming-page .description p:hover {
+            background: rgba(0, 255, 127, 0.4);
+        }
+        header, main {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<div class="arrow">
+    <img src="https://th.bing.com/th/id/R.d875db0c2ffcba7998d7f833af60aef0?rik=ZGQVMFzJockh1g&riu=http%3a%2f%2fwww.clipartbest.com%2fcliparts%2fMTL%2fLk8%2fMTLLk886c.png&ehk=NmVhLT9ensA6adsi7%2boVA4b%2flN%2fscHXQqsOSiMXLWtY%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Arrow Image" style="width: 100%;">
+</div>
+
+<div class="login-container">
+    <div class="login-box">
+        <img src="https://i.pinimg.com/736x/fe/c2/19/fec2190fd1f17df0d05c7125e40e2d6f.jpg" alt="Logo">
+        <form id="loginForm">
+            <input type="password" id="password" placeholder="Enter Password" required><br>
+            <label><input type="checkbox" id="notRobot"> Je ne suis pas un robot</label><br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</div>
+
+<div class="streaming-page" style="display:none;">
+    <header>
+        <img src="https://www.themoviedb.org/t/p/original/qNfos4t7QJ6ikkrxs3R3TkFGlnk.png" alt="Logo" style="width: 100px;">
+    </header>
+    <main style="padding: 20px;">
+        <div class="info-container">
+            <img src="https://i.pinimg.com/736x/bf/41/67/bf4167e5b73d8e9641ba6d24816c1fa5--october--season-premiere.jpg" alt="Movie Poster" style="width: 200px;">
+            <h2 style="text-align: center;">Arrow</h2>
+            <div class="info">
+                <p><strong>Genre:</strong>  Action, Drame, Fantastique, Séries VF</p>
+                <p><strong>Durée:</strong> 42 min</p>
+                <p><strong>Date de sortie:</strong> 2012</p>
+                <p><strong>Réalisé par:</strong> Andrew Kreisberg, Greg Berlanti, Marc Guggenheim</p>
+                <p><strong>Acteurs:</strong> Stephen Amell, Katie Cassidy, David Ramsey</p>
+            </div>
+            <div class="integrated-video">
+                <iframe src="https://voe.sx/e/5hjk9m9snuqg" width="100%" height="370px" scrolling="NO" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">…</iframe>
+            </div>
+        </div>
+        <p style="text-align: center;">By Felicity Smoak</p>
+    </main>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const password = document.getElementById('password').value;
+        const notRobot = document.getElementById('notRobot').checked;
+        if (password === '95741' && notRobot) {
+            document.querySelector('.login-container').style.display = 'none';
+            document.querySelector('.streaming-page').style.display = 'block';
+        } else {
+            alert('Mot de passe incorrect ou vous devez cocher "Je ne suis pas un robot".');
+        }
+    });
+</script>
+
+</body>
+</html>
